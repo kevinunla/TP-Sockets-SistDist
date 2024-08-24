@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1724505947 source:c:\users\kevin\documents\kevin\2024\s distribuidos\tp sockets\clientec++\main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<winsock2.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<windows.h>
+	<unistd.h>
+
