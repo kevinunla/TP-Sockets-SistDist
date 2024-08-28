@@ -11,6 +11,7 @@
 #include <unistd.h>
 #define PORT 8080
 int main() {
+    f:
     fflush(stdin);
     WSADATA wsaData;
     SOCKET client_socket;
@@ -41,6 +42,7 @@ int main() {
         printf("Elija una opcion:\n");
         printf("1. Generar nombre de usuario\n");
         printf("2. Generar contrasena\n");
+        printf("3. Salir\n");
         scanf("%d", &opcion);
         if(opcion==1){
                 printf("Ingrese la longitud deseada: ");
@@ -49,7 +51,7 @@ int main() {
                 send(client_socket, (char*)&longitud, sizeof(longitud), 0);
                 recv(client_socket, buffer, sizeof(buffer), 0);
                 printf("Respuesta del servidor: %s\n", buffer);
-                flag=false;
+                goto f;
         }else if(opcion==2){
                 printf("Ingrese la longitud deseada: ");
                 scanf("%d", &longitud);
@@ -57,6 +59,8 @@ int main() {
                 send(client_socket, (char*)&longitud, sizeof(longitud), 0);
                 recv(client_socket, buffer, sizeof(buffer), 0);
                 printf("Respuesta del servidor: %s\n", buffer);
+                goto f;
+        }else if(opcion==3){
                 flag=false;
         }else{
                 printf("Opcion no valida.\n");
